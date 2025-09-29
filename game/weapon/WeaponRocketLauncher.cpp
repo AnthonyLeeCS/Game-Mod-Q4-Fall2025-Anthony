@@ -112,8 +112,8 @@ void rvWeaponRocketLauncher::Spawn ( void ) {
 	guideAccelTime = SEC2MS ( spawnArgs.GetFloat ( "lockAccelTime", ".25" ) );
 	
 	// Dark Matter Edit
-	int orb_pellets;	spawnArgs.GetInt("primary_Pellets", "4", orb_pellets);
-	float spreadDeg;	spawnArgs.GetFloat("primary_Spread", "8", spreadDeg);
+	int orb_pellets;	spawnArgs.GetInt("primary_Pellets", "5", orb_pellets);
+	float spreadDeg;	spawnArgs.GetFloat("primary_Spread", "40", spreadDeg);
 	float rateSec;		spawnArgs.GetFloat("primary_FireRate", "1.2", rateSec);
 
 	// range clamp
@@ -134,7 +134,6 @@ void rvWeaponRocketLauncher::Spawn ( void ) {
 	primary_Pellets = orb_pellets;
 	primary_Spread = spreadDeg;
 	primaryFireRateMS = SEC2MS(rateSec);
-	// Dark Matter Alt-Fire edit ends here
 
 	// Start rocket thread
 	rocketThread.SetName ( viewModel->GetName ( ) );
@@ -474,12 +473,25 @@ stateResult_t rvWeaponRocketLauncher::State_Fire ( const stateParms_t& parms ) {
 		STAGE_WAIT,
 	};	
 	switch ( parms.stage ) {
-		case STAGE_INIT:
-			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));		
-			Attack ( false, primary_Pellets, primary_Spread, 0, 1.0f );
-			PlayAnim ( ANIMCHANNEL_LEGS, "fire", parms.blendFrames );	
-			return SRESULT_STAGE ( STAGE_WAIT );
-	
+		case STAGE_INIT: {
+			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier(PMOD_FIRERATE));
+
+			// ensure we have enough rounds to spawn all pellets
+			int want = primary_Pellets;
+			int cs = ClipSize();
+			int cap = (cs > 0) ? (cs < want ? cs : want) : want;   // min(cs, want), 0 means "no clip" style
+			int need = cap - AmmoInClip();
+			while (need > 0 && AmmoAvailable() > AmmoInClip()) {
+				AddToClip(1);
+				--need;
+			}
+
+			// fire the spread
+			Attack(false, primary_Pellets, primary_Spread, 0, 1.0f);
+			PlayAnim(ANIMCHANNEL_LEGS, "fire", parms.blendFrames);
+			return SRESULT_STAGE(STAGE_WAIT);
+		}
+
 		case STAGE_WAIT:			
 			if ( wsfl.attack && gameLocal.time >= nextAttackTime && ( gameLocal.isClient || AmmoInClip ( ) ) && !wsfl.lowerWeapon ) {
 				SetState ( "Fire", 0 );
