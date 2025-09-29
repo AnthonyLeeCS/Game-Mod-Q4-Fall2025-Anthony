@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Game">
+<<<<<<< HEAD
       <UniqueIdentifier>{633b3c83-d136-4346-a912-035937656a1b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\AI">
@@ -36,6 +37,42 @@
     </Filter>
     <Filter Include="Game\MP\Stats">
       <UniqueIdentifier>{54971dab-2421-40ae-8f73-1984be254ec2}</UniqueIdentifier>
+=======
+      <UniqueIdentifier>{bfa877af-5676-403f-83f7-7d766d49c765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AI">
+      <UniqueIdentifier>{cc42c2bc-c575-4ea4-99ae-7d1146c02fb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Anim">
+      <UniqueIdentifier>{ac1e6a1f-0e4a-49a6-962b-2eb4e392f4da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Client">
+      <UniqueIdentifier>{127bbc25-3aa8-4671-b934-44b48667e7da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameSys">
+      <UniqueIdentifier>{b5556c57-5ac5-4b3c-8e15-1d71b76f4b4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Physics">
+      <UniqueIdentifier>{6ef0e685-1af6-41d8-9d39-1205f66a101b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{c15a3195-9e14-4126-a3bb-ccb1cef58067}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Script">
+      <UniqueIdentifier>{e3745cf1-c2f5-4f81-a3a3-1248619f0be5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Vehicle">
+      <UniqueIdentifier>{00cba3d3-ce6b-4fd0-80c7-316d11f270c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Weapon">
+      <UniqueIdentifier>{5e243511-3f04-4dff-8928-f323788cc69f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MP">
+      <UniqueIdentifier>{5e30fff2-b703-49f6-828d-ae4956ee48dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MP\Stats">
+      <UniqueIdentifier>{a22ce563-3e65-4f27-81dd-b393d9ac30b0}</UniqueIdentifier>
+>>>>>>> 4eb17bd587474d3923a963d7b3f19b87cf526471
     </Filter>
   </ItemGroup>
   <ItemGroup>

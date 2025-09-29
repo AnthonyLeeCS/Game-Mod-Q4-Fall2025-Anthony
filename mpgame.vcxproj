@@ -54,7 +54,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
+<<<<<<< HEAD
     <_ProjectFileVersion>17.0.34511.75</_ProjectFileVersion>
+=======
+    <_ProjectFileVersion>17.0.35707.178</_ProjectFileVersion>
+>>>>>>> 4eb17bd587474d3923a963d7b3f19b87cf526471
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>../$(Platform)/$(Configuration)\</OutDir>

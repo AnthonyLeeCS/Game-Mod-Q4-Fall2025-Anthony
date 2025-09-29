@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Game">
+<<<<<<< HEAD
       <UniqueIdentifier>{b8aae757-6331-4796-937d-ffb7bc77b39c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\AI">
@@ -39,6 +40,45 @@
     </Filter>
     <Filter Include="Game\Resource">
       <UniqueIdentifier>{7ba45109-e0e8-416c-9b2e-a092819419d0}</UniqueIdentifier>
+=======
+      <UniqueIdentifier>{b0067b61-eabb-49aa-b761-d989defca250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AI">
+      <UniqueIdentifier>{84223dd3-daac-46ad-9081-91644a746316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Anim">
+      <UniqueIdentifier>{c3958b89-c735-4447-9b66-d423fe98e4d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Client">
+      <UniqueIdentifier>{c5e091cc-98d1-49c9-940d-3851a7efd0c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameSys">
+      <UniqueIdentifier>{39eb63cc-8009-41e3-90b5-340b47408a6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Physics">
+      <UniqueIdentifier>{a6102b48-ce0f-4e53-aff8-ea7cf1aad25b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{5a4087ac-b19a-4d9a-8add-caf386301631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Script">
+      <UniqueIdentifier>{799d036d-b1e8-4b3e-875f-1d9739489738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Vehicle">
+      <UniqueIdentifier>{c4cd99c5-f06c-4d46-bce3-35d2d9dda4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Weapon">
+      <UniqueIdentifier>{68459a7f-498a-4c37-a76e-040202cd7db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MP">
+      <UniqueIdentifier>{e427eeee-271d-4279-ab9c-963a2eeb2eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MP\Stats">
+      <UniqueIdentifier>{414f1c63-de21-43c0-b582-63b140bb01b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Resource">
+      <UniqueIdentifier>{82914feb-9481-492a-9e80-0eea76da3fd9}</UniqueIdentifier>
+>>>>>>> 4eb17bd587474d3923a963d7b3f19b87cf526471
     </Filter>
   </ItemGroup>
   <ItemGroup>
