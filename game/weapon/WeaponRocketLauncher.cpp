@@ -48,9 +48,9 @@ protected:
 	float								reloadRate;
 
 	// For Dark Matter Rocket Launcher alt-fire
-	int				alt_Pellets;
-	float			alt_Spread;
-	int				altFireRateMS;
+	int				primary_Pellets;
+	float			primary_Spread;
+	int				primaryFireRateMS;
 
 	bool								idleEmpty;
 
@@ -111,10 +111,10 @@ void rvWeaponRocketLauncher::Spawn ( void ) {
 	
 	guideAccelTime = SEC2MS ( spawnArgs.GetFloat ( "lockAccelTime", ".25" ) );
 	
-	// Dark Matter Alt-Fire (RMB)
-	int orb_pellets;	spawnArgs.GetInt("alt_pellets", "4", orb_pellets);
-	float spreadDeg;	spawnArgs.GetFloat("alt_spread", "8", spreadDeg);
-	float rateSec;		spawnArgs.GetFloat("alt_fireRate", "1.2", rateSec);
+	// Dark Matter Edit
+	int orb_pellets;	spawnArgs.GetInt("primary_Pellets", "4", orb_pellets);
+	float spreadDeg;	spawnArgs.GetFloat("primary_Spread", "8", spreadDeg);
+	float rateSec;		spawnArgs.GetFloat("primary_FireRate", "1.2", rateSec);
 
 	// range clamp
 	if (orb_pellets < 1) {
@@ -131,9 +131,9 @@ void rvWeaponRocketLauncher::Spawn ( void ) {
 		spreadDeg = 45.0f;
 	}
 
-	alt_Pellets = orb_pellets;
-	alt_Spread = spreadDeg;
-	altFireRateMS = SEC2MS(rateSec);
+	primary_Pellets = orb_pellets;
+	primary_Spread = spreadDeg;
+	primaryFireRateMS = SEC2MS(rateSec);
 	// Dark Matter Alt-Fire edit ends here
 
 	// Start rocket thread
@@ -476,7 +476,7 @@ stateResult_t rvWeaponRocketLauncher::State_Fire ( const stateParms_t& parms ) {
 	switch ( parms.stage ) {
 		case STAGE_INIT:
 			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));		
-			Attack ( false, 1, spread, 0, 1.0f );
+			Attack ( false, primary_Pellets, primary_Spread, 0, 1.0f );
 			PlayAnim ( ANIMCHANNEL_LEGS, "fire", parms.blendFrames );	
 			return SRESULT_STAGE ( STAGE_WAIT );
 	
