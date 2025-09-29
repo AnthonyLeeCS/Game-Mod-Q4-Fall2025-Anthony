@@ -47,6 +47,11 @@ protected:
 
 	float								reloadRate;
 
+	// For Dark Matter Rocket Launcher alt-fire
+	int				alt_Pellets;
+	float			alt_Spread;
+	int				altFireRateMS;
+
 	bool								idleEmpty;
 
 private:
@@ -106,6 +111,31 @@ void rvWeaponRocketLauncher::Spawn ( void ) {
 	
 	guideAccelTime = SEC2MS ( spawnArgs.GetFloat ( "lockAccelTime", ".25" ) );
 	
+	// Dark Matter Alt-Fire (RMB)
+	int orb_pellets;	spawnArgs.GetInt("alt_pellets", "4", orb_pellets);
+	float spreadDeg;	spawnArgs.GetFloat("alt_spread", "8", spreadDeg);
+	float rateSec;		spawnArgs.GetFloat("alt_fireRate", "1.2", rateSec);
+
+	// range clamp
+	if (orb_pellets < 1) {
+		orb_pellets = 1;
+	}
+	else if (orb_pellets > 10) {
+		orb_pellets = 10;
+	}
+
+	if (spreadDeg < 0) {
+		spreadDeg = 0.0f;
+	}
+	else if (spreadDeg > 45) {
+		spreadDeg = 45.0f;
+	}
+
+	alt_Pellets = orb_pellets;
+	alt_Spread = spreadDeg;
+	altFireRateMS = SEC2MS(rateSec);
+	// Dark Matter Alt-Fire edit ends here
+
 	// Start rocket thread
 	rocketThread.SetName ( viewModel->GetName ( ) );
 	rocketThread.SetOwner ( this );
